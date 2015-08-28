@@ -11,6 +11,7 @@ kit.glob [
     "#{PROJECT_PATH}/**/*.coffee"
     "#{PROJECT_PATH}/**/*.jade"
     "!#{PROJECT_PATH}/node_modules/**"
+    "!#{PROJECT_PATH}/bower_components/**"
 ]
 .then (fs) ->
     convert = (f) ->
@@ -30,7 +31,7 @@ kit.glob [
                     str = str.replace re, camelCase
             kit.writeFile f, str
 
-    tasks = _.map fs[0..1], (f) ->
+    tasks = _.map fs, (f) ->
         convert(f)
 
     yakuUtils.async 1, tasks
