@@ -1,0 +1,11 @@
+{
+  "name": "snakecase_to_camelcase",
+  "version": "1.0.0",
+  "private": true,
+  "authors": "https://github.com/hustKiwi",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "nokit": "^0.10.0",
+    "yaku": "^0.7.3"
+  }
+}
