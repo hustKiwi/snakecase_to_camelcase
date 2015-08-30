@@ -5,7 +5,7 @@ yakuUtils = require 'yaku/lib/utils'
 
 br = kit.require 'brush'
 
-SNAKECASE_RE = /(?:^|\s|\.|\@|\()(?!_)[a-z]+_\w+(?:$|\s|\.|\(|,|:|-|\+|\[)/gm
+SNAKECASE_RE = /(?:^|\s|\.|\@|\(|\$)(?!_)[a-z]+_\w+(?:$|\s|\.|\(|,|:|-|\+|\[)/gm
 PROJECT_PATH = '../xuetanzou'
 
 kit.glob [
@@ -22,7 +22,7 @@ kit.glob [
             match = str.match SNAKECASE_RE
             if not _.isEmpty match
                 for item in _.uniq _.filter _.map(match, (item) ->
-                    item.replace(/\.|\s+|\(|\@|,|:|-|\+|\[/g, '')
+                    item.replace(/\.|\s+|\(|\@|\$|,|:|-|\+|\[/g, '')
                 )
                     re = new RegExp item, 'g'
                     camelCase = _.camelCase item
